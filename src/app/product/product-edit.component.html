@@ -1,0 +1,25 @@
+<div style="display: flex; flex-direction: column; justify-content: center;">
+  <h4 style="margin: 0;">Product ({{data.product.id}})</h4>
+  <hr>
+  <form style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <mat-form-field appearance="legacy">
+      <mat-label>Name</mat-label>
+      <input matInput type="text" [(ngModel)]="data.product.name" name="name">
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy">
+      <mat-label>Description</mat-label>
+      <input matInput type="text" [(ngModel)]="data.product.description" name="description">
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy" floatLabel="always">
+      <mat-label>Amount</mat-label>
+      <input matInput type="number" [(ngModel)]="data.product.price" name="price">
+      <span matPrefix>$&nbsp;</span>
+    </mat-form-field>
+    <div style="display: flex; width: 50%; justify-content: end;">
+      <button mat-raised-button color="primary" (click)="data.repository.update(data.product)">Save</button>
+      <button mat-raised-button style="margin-left: 0.675rem;" color="warn" (click)="data.repository.delete(data.product)">Delete</button>
+    </div>
+  </form>
+</div>
